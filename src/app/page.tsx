@@ -10,21 +10,24 @@ import EnrollmentForm from "@/components/EnrollmentForm";
 import Footer from "@/components/Footer";
 
 import GlobalAmbience from "@/components/GlobalAmbience";
+import Gatekeeper from "@/components/Gatekeeper";
 
 export default function Home() {
   return (
-    <main className="relative bg-background min-h-screen">
-      <GlobalAmbience />
-      <Header />
-      <Hero />
-      <About />
-      <Curriculum />
-      <Skills />
-      <Instructor />
-      <Testimonials />
-      <FAQ />
-      <EnrollmentForm />
-      <Footer />
-    </main>
+    <Gatekeeper>
+      <main className="relative bg-background min-h-screen">
+        <GlobalAmbience />
+        <Header />
+        <Hero />
+        <About />
+        <Curriculum />
+        <Skills />
+        <Instructor />
+        <Testimonials />
+        <FAQ />
+        <EnrollmentForm />
+        <Footer />
+      </main>
+    </Gatekeeper>
   );
 }
