@@ -22,7 +22,7 @@ export default function EnrollmentForm() {
   };
 
   return (
-    <section className="pt-32 pb-16 px-6 bg-background relative overflow-hidden">
+    <section id="enrollment" className="pt-32 pb-16 px-6 bg-background relative overflow-hidden">
       {/* Decorative ambient glows */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-lavender-start/10 rounded-full blur-[150px] pointer-events-none" />
       
@@ -52,7 +52,7 @@ export default function EnrollmentForm() {
                   </h2>
                   <p className="text-white/60 text-lg">
                     Only 20 seats available for the upcoming masterclass cohort. <br />
-                    Or enquire on WhatsApp: <span className="text-lavender-start font-medium">90887 91637</span>
+                    Or enquire on WhatsApp: <span className="text-lavender-start font-medium whitespace-nowrap">90887 91637</span>
                   </p>
                 </div>
                 

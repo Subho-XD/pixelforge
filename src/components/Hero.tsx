@@ -94,7 +94,7 @@ export default function Hero() {
         {/* Floating 3D Icon (The Forge) */}
         {isMounted && (
           <motion.div
-            className="absolute inset-0 flex items-center justify-center pointer-events-none z-[-1]"
+            className="hidden md:flex absolute inset-0 items-center justify-center pointer-events-none z-[-1]"
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 2, ease: [0.16, 1, 0.3, 1] }}
@@ -169,9 +169,9 @@ export default function Hero() {
           transition={{ duration: 1, delay: 0.5 }}
           className="mb-16 md:mb-32"
         >
-          <button className="px-10 py-4 bg-transparent border border-white/40 text-white text-[10px] md:text-xs font-semibold tracking-[0.2em] uppercase hover:bg-white hover:text-[#030008] hover:border-white transition-all duration-300 rounded-full shadow-[0_0_20px_rgba(138,43,226,0.1)] hover:shadow-[0_0_30px_rgba(138,43,226,0.4)] backdrop-blur-md">
+          <a href="#enrollment" className="inline-block px-10 py-4 bg-transparent border border-white/40 text-white text-[10px] md:text-xs font-semibold tracking-[0.2em] uppercase hover:bg-white hover:text-[#030008] hover:border-white transition-all duration-300 rounded-full shadow-[0_0_20px_rgba(138,43,226,0.1)] hover:shadow-[0_0_30px_rgba(138,43,226,0.4)] backdrop-blur-md">
             Enroll Now
-          </button>
+          </a>
         </motion.div>
 
       </div>

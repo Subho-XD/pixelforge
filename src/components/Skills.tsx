@@ -17,15 +17,15 @@ import {
 
 // --- Abstract Background Components ---
 const TypographyBg = () => (
-  <div className="absolute -bottom-10 -right-4 text-[240px] font-serif font-black text-white/[0.03] opacity-0 group-hover:opacity-100 group-hover:scale-110 transition-all duration-[1.5s] ease-out rotate-[15deg]">
+  <div className="absolute -bottom-10 -right-4 text-[240px] font-serif font-black text-white/[0.03] opacity-0 md:group-hover: group-data-[tapped=true]:opacity-100 md:group-hover: group-data-[tapped=true]:scale-110 transition-all duration-[1.5s] ease-out rotate-[15deg]">
     Aa
   </div>
 );
 
 const ColorTheoryBg = () => (
-  <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-1000 flex items-center justify-center pointer-events-none">
+  <div className="absolute inset-0 opacity-0 md:group-hover: group-data-[tapped=true]:opacity-100 transition-opacity duration-1000 flex items-center justify-center pointer-events-none">
     {/* A spinning monochromatic purple color wheel */}
-    <div className="relative w-40 h-40 transform scale-50 group-hover:scale-125 transition-transform duration-[1.5s] ease-out">
+    <div className="relative w-40 h-40 transform scale-50 md:group-hover: group-data-[tapped=true]:scale-125 transition-transform duration-[1.5s] ease-out">
       <div className="absolute inset-0 rounded-full bg-[conic-gradient(from_0deg,#2e1065,#581c87,#7e22ce,#a855f7,#d8b4fe,#a855f7,#7e22ce,#581c87,#2e1065)] animate-[spin_10s_linear_infinite]" />
       {/* Hollow center */}
       <div className="absolute inset-[15%] bg-[#0a0515] rounded-full border border-white/5" />
@@ -34,7 +34,7 @@ const ColorTheoryBg = () => (
 );
 
 const BrandingBg = () => (
-  <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-1000 group-hover:rotate-[45deg] scale-50 group-hover:scale-150">
+  <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex items-center justify-center opacity-0 md:group-hover: group-data-[tapped=true]:opacity-100 transition-all duration-1000 md:group-hover: group-data-[tapped=true]:rotate-[45deg] scale-50 md:group-hover: group-data-[tapped=true]:scale-150">
     <div className="w-48 h-48 border border-white/5 rounded-full absolute" />
     <div className="w-32 h-32 border border-white/10 rounded-full absolute" />
     <div className="w-16 h-16 border border-white/20 rounded-full absolute bg-white/5 backdrop-blur-md" />
@@ -42,55 +42,55 @@ const BrandingBg = () => (
 );
 
 const PosterDesignBg = () => (
-  <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-all duration-1000 flex items-center justify-center pointer-events-none">
+  <div className="absolute inset-0 opacity-0 md:group-hover: group-data-[tapped=true]:opacity-100 transition-all duration-1000 flex items-center justify-center pointer-events-none">
     {/* A4 proportioned poster wireframe (e.g. 1:1.414 aspect ratio) */}
-    <div className="relative w-[120px] h-[170px] border border-white/20 bg-white/[0.02] overflow-hidden flex flex-col p-3 gap-2.5 transform translate-y-10 group-hover:translate-y-0 group-hover:rotate-[-4deg] transition-transform duration-700 shadow-2xl backdrop-blur-sm">
+    <div className="relative w-[120px] h-[170px] border border-white/20 bg-white/[0.02] overflow-hidden flex flex-col p-3 gap-2.5 transform translate-y-10 md:group-hover: group-data-[tapped=true]:translate-y-0 md:group-hover: group-data-[tapped=true]:rotate-[-4deg] transition-transform duration-700 shadow-2xl backdrop-blur-sm">
       {/* Hero Image Block */}
-      <div className="w-full h-[40%] bg-purple-500/20 border border-purple-400/20 transform origin-bottom scale-y-0 group-hover:scale-y-100 transition-transform duration-700 delay-100 flex items-center justify-center">
+      <div className="w-full h-[40%] bg-purple-500/20 border border-purple-400/20 transform origin-bottom scale-y-0 md:group-hover: group-data-[tapped=true]:scale-y-100 transition-transform duration-700 delay-100 flex items-center justify-center">
         <div className="w-5 h-5 border border-purple-400/40 rounded-full" />
       </div>
       {/* Headline */}
-      <div className="w-3/4 h-2.5 bg-purple-300/30 transform -translate-x-10 group-hover:translate-x-0 transition-transform duration-700 delay-200" />
+      <div className="w-3/4 h-2.5 bg-purple-300/30 transform -translate-x-10 md:group-hover: group-data-[tapped=true]:translate-x-0 transition-transform duration-700 delay-200" />
       {/* Subhead / Text blocks */}
       <div className="space-y-1.5 mt-auto">
-        <div className="w-full h-1 bg-purple-300/10 transform -translate-x-10 group-hover:translate-x-0 transition-transform duration-700 delay-300" />
-        <div className="w-5/6 h-1 bg-purple-300/10 transform -translate-x-10 group-hover:translate-x-0 transition-transform duration-700 delay-400" />
-        <div className="w-4/6 h-1 bg-purple-300/10 transform -translate-x-10 group-hover:translate-x-0 transition-transform duration-700 delay-500" />
+        <div className="w-full h-1 bg-purple-300/10 transform -translate-x-10 md:group-hover: group-data-[tapped=true]:translate-x-0 transition-transform duration-700 delay-300" />
+        <div className="w-5/6 h-1 bg-purple-300/10 transform -translate-x-10 md:group-hover: group-data-[tapped=true]:translate-x-0 transition-transform duration-700 delay-400" />
+        <div className="w-4/6 h-1 bg-purple-300/10 transform -translate-x-10 md:group-hover: group-data-[tapped=true]:translate-x-0 transition-transform duration-700 delay-500" />
       </div>
     </div>
   </div>
 );
 
 const SocialMediaBg = () => (
-  <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-all duration-1000 pointer-events-none overflow-hidden">
+  <div className="absolute inset-0 opacity-0 md:group-hover: group-data-[tapped=true]:opacity-100 transition-all duration-1000 pointer-events-none overflow-hidden">
     {/* Wireframe Phone UI */}
     <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[200px] h-[400px] border border-white/5 rounded-[40px] opacity-20 transform scale-150 rotate-12" />
     
     {/* Floating icons */}
-    <div className="absolute top-[20%] right-[15%] text-purple-400/40 transform scale-50 group-hover:scale-100 group-hover:-translate-y-6 transition-all duration-[1.5s]">
+    <div className="absolute top-[20%] right-[15%] text-purple-400/40 transform scale-50 md:group-hover: group-data-[tapped=true]:scale-100 md:group-hover: group-data-[tapped=true]:-translate-y-6 transition-all duration-[1.5s]">
       <Heart fill="currentColor" className="w-20 h-20 drop-shadow-[0_0_20px_rgba(168,85,247,0.5)]" />
     </div>
-    <div className="absolute bottom-[20%] left-[15%] text-indigo-400/40 transform scale-50 group-hover:scale-100 group-hover:translate-y-6 transition-all duration-[1.5s] delay-100">
+    <div className="absolute bottom-[20%] left-[15%] text-indigo-400/40 transform scale-50 md:group-hover: group-data-[tapped=true]:scale-100 md:group-hover: group-data-[tapped=true]:translate-y-6 transition-all duration-[1.5s] delay-100">
       <MessageCircle fill="currentColor" className="w-16 h-16 drop-shadow-[0_0_20px_rgba(129,140,248,0.5)]" />
     </div>
   </div>
 );
 
 const PortfolioBg = () => (
-  <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-all duration-1000 flex items-center justify-center pointer-events-none perspective-[1000px]">
+  <div className="absolute inset-0 opacity-0 md:group-hover: group-data-[tapped=true]:opacity-100 transition-all duration-1000 flex items-center justify-center pointer-events-none perspective-[1000px]">
     {/* Fan out cards */}
-    <div className="absolute w-40 h-24 border border-white/10 bg-indigo-600/10 backdrop-blur-md rounded-xl transform transition-transform duration-700 ease-out translate-y-[20px] group-hover:translate-x-[-60px] group-hover:-rotate-[15deg] group-hover:translate-y-[10px]" />
-    <div className="absolute w-40 h-24 border border-white/10 bg-purple-600/10 backdrop-blur-md rounded-xl transform z-10 scale-95 group-hover:scale-100 transition-transform duration-700 ease-out" />
-    <div className="absolute w-40 h-24 border border-white/10 bg-fuchsia-600/10 backdrop-blur-md rounded-xl transform transition-transform duration-700 ease-out translate-y-[20px] group-hover:translate-x-[60px] group-hover:rotate-[15deg] group-hover:translate-y-[10px]" />
+    <div className="absolute w-40 h-24 border border-white/10 bg-indigo-600/10 backdrop-blur-md rounded-xl transform transition-transform duration-700 ease-out translate-y-[20px] md:group-hover: group-data-[tapped=true]:translate-x-[-60px] md:group-hover: group-data-[tapped=true]:-rotate-[15deg] md:group-hover: group-data-[tapped=true]:translate-y-[10px]" />
+    <div className="absolute w-40 h-24 border border-white/10 bg-purple-600/10 backdrop-blur-md rounded-xl transform z-10 scale-95 md:group-hover: group-data-[tapped=true]:scale-100 transition-transform duration-700 ease-out" />
+    <div className="absolute w-40 h-24 border border-white/10 bg-fuchsia-600/10 backdrop-blur-md rounded-xl transform transition-transform duration-700 ease-out translate-y-[20px] md:group-hover: group-data-[tapped=true]:translate-x-[60px] md:group-hover: group-data-[tapped=true]:rotate-[15deg] md:group-hover: group-data-[tapped=true]:translate-y-[10px]" />
   </div>
 );
 
 const ManipulationBg = () => (
-  <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-all duration-1000 flex items-center justify-center pointer-events-none overflow-hidden">
+  <div className="absolute inset-0 opacity-0 md:group-hover: group-data-[tapped=true]:opacity-100 transition-all duration-1000 flex items-center justify-center pointer-events-none overflow-hidden">
     {/* Purple Glitch / Split Effect */}
-    <div className="w-32 h-32 rounded-full absolute transform mix-blend-screen shadow-[0_0_40px_rgba(168,85,247,0.3)] border border-purple-500/20 group-hover:-translate-x-6 group-hover:-translate-y-2 transition-transform duration-[1.5s] ease-out" />
-    <div className="w-32 h-32 rounded-full bg-white/5 absolute transform backdrop-blur-sm border border-white/10 z-10 scale-90 group-hover:scale-100 transition-transform duration-[1.5s] ease-out" />
-    <div className="w-32 h-32 rounded-full absolute transform mix-blend-screen shadow-[0_0_40px_rgba(99,102,241,0.3)] border border-indigo-500/20 group-hover:translate-x-6 group-hover:translate-y-2 transition-transform duration-[1.5s] ease-out" />
+    <div className="w-32 h-32 rounded-full absolute transform mix-blend-screen shadow-[0_0_40px_rgba(168,85,247,0.3)] border border-purple-500/20 md:group-hover: group-data-[tapped=true]:-translate-x-6 md:group-hover: group-data-[tapped=true]:-translate-y-2 transition-transform duration-[1.5s] ease-out" />
+    <div className="w-32 h-32 rounded-full bg-white/5 absolute transform backdrop-blur-sm border border-white/10 z-10 scale-90 md:group-hover: group-data-[tapped=true]:scale-100 transition-transform duration-[1.5s] ease-out" />
+    <div className="w-32 h-32 rounded-full absolute transform mix-blend-screen shadow-[0_0_40px_rgba(99,102,241,0.3)] border border-indigo-500/20 md:group-hover: group-data-[tapped=true]:translate-x-6 md:group-hover: group-data-[tapped=true]:translate-y-2 transition-transform duration-[1.5s] ease-out" />
   </div>
 );
 
@@ -109,17 +109,17 @@ const GeminiSparkle = ({ className }: { className?: string }) => (
 );
 
 const AIBg = () => (
-  <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-all duration-1000 flex items-center justify-center pointer-events-none">
+  <div className="absolute inset-0 opacity-0 md:group-hover: group-data-[tapped=true]:opacity-100 transition-all duration-1000 flex items-center justify-center pointer-events-none">
     {/* Ambient Glow */}
-    <div className="absolute w-40 h-40 bg-purple-500/20 blur-[50px] group-hover:scale-150 transition-transform duration-[2s]" />
+    <div className="absolute w-40 h-40 bg-purple-500/20 blur-[50px] md:group-hover: group-data-[tapped=true]:scale-150 transition-transform duration-[2s]" />
     
     {/* Main Sparkle */}
-    <div className="transform group-hover:rotate-180 transition-transform duration-[3s] ease-in-out group-hover:scale-125 z-10">
+    <div className="transform md:group-hover: group-data-[tapped=true]:rotate-180 transition-transform duration-[3s] ease-in-out md:group-hover: group-data-[tapped=true]:scale-125 z-10">
       <GeminiSparkle className="w-32 h-32 opacity-80 filter drop-shadow-[0_0_15px_rgba(155,114,203,0.5)]" />
     </div>
     
     {/* Secondary small sparkle */}
-    <div className="absolute transform scale-0 -translate-y-4 translate-x-4 group-hover:scale-50 group-hover:rotate-[-90deg] group-hover:-translate-y-16 group-hover:translate-x-16 transition-all duration-[2s] ease-in-out">
+    <div className="absolute transform scale-0 -translate-y-4 translate-x-4 md:group-hover: group-data-[tapped=true]:scale-50 md:group-hover: group-data-[tapped=true]:rotate-[-90deg] md:group-hover: group-data-[tapped=true]:-translate-y-16 md:group-hover: group-data-[tapped=true]:translate-x-16 transition-all duration-[2s] ease-in-out">
       <GeminiSparkle className="w-20 h-20 opacity-60" />
     </div>
   </div>
@@ -233,9 +233,13 @@ function InteractiveCard({ skill, index }: { skill: any, index: number }) {
     mouseY.set(-1000);
   };
 
+  const [isTapped, setIsTapped] = useState(false);
+
   return (
     <motion.div
       ref={cardRef}
+      onClick={() => isMobile && setIsTapped(!isTapped)}
+      data-tapped={isTapped}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
       initial={{ opacity: 0, y: 40 }}
@@ -257,7 +261,7 @@ function InteractiveCard({ skill, index }: { skill: any, index: number }) {
       
       {/* 3. Volumetric Spotlight Background */}
       <motion.div 
-        className="absolute inset-0 z-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
+        className="absolute inset-0 z-0 opacity-0 md:group-hover: group-data-[tapped=true]:opacity-100 transition-opacity duration-500 pointer-events-none"
         style={{
           background: useMotionTemplate`radial-gradient(500px circle at ${mouseX}px ${mouseY}px, rgba(138,43,226,0.15), transparent 40%)`
         }}
@@ -265,7 +269,7 @@ function InteractiveCard({ skill, index }: { skill: any, index: number }) {
       
       {/* 4. Crisp Border Spotlight Overlay */}
       <motion.div 
-        className="absolute inset-0 z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none rounded-3xl"
+        className="absolute inset-0 z-10 opacity-0 md:group-hover: group-data-[tapped=true]:opacity-100 transition-opacity duration-300 pointer-events-none rounded-3xl"
         style={{
           background: useMotionTemplate`radial-gradient(300px circle at ${mouseX}px ${mouseY}px, rgba(255,255,255,0.4), transparent 40%)`,
           WebkitMask: "linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)",
@@ -282,18 +286,18 @@ function InteractiveCard({ skill, index }: { skill: any, index: number }) {
       >
         
         {/* Animated Icon */}
-        <div className="text-white/30 mb-auto group-hover:text-white group-hover:scale-110 group-hover:-translate-y-2 group-hover:drop-shadow-[0_0_15px_rgba(255,255,255,0.6)] transition-all duration-500 origin-left">
+        <div className="text-white/30 mb-auto md:group-hover: group-data-[tapped=true]:text-white md:group-hover: group-data-[tapped=true]:scale-110 md:group-hover: group-data-[tapped=true]:-translate-y-2 md:group-hover: group-data-[tapped=true]:drop-shadow-[0_0_15px_rgba(255,255,255,0.6)] transition-all duration-500 origin-left">
           {skill.icon}
         </div>
         
         {/* Kinetic Text */}
-        <div className="transform transition-all duration-500 group-hover:translate-y-[-8px]">
-          <h3 className="font-serif text-3xl md:text-4xl text-white/80 group-hover:text-white mb-2 tracking-tight transition-colors duration-300">
+        <div className="transform transition-all duration-500 md:group-hover: group-data-[tapped=true]:translate-y-[-8px]">
+          <h3 className="font-serif text-3xl md:text-4xl text-white/80 md:group-hover: group-data-[tapped=true]:text-white mb-2 tracking-tight transition-colors duration-300">
             {skill.title}
           </h3>
           
-          <div className="overflow-hidden h-0 group-hover:h-auto opacity-0 group-hover:opacity-100 transition-all duration-500 mt-4">
-            <p className="text-white/60 text-sm font-light leading-relaxed transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500 delay-100">
+          <div className="overflow-hidden h-0 md:group-hover: group-data-[tapped=true]:h-auto opacity-0 md:group-hover: group-data-[tapped=true]:opacity-100 transition-all duration-500 mt-4">
+            <p className="text-white/60 text-sm font-light leading-relaxed transform translate-y-4 md:group-hover: group-data-[tapped=true]:translate-y-0 transition-transform duration-500 delay-100">
               {skill.desc}
             </p>
           </div>

@@ -59,9 +59,9 @@ export default function Header() {
           </nav>
           
           <div className="flex-1 flex justify-end items-center gap-4">
-            <button className="hidden md:flex items-center gap-2 bg-white text-indigo-900 px-6 py-2.5 rounded-full text-sm font-bold tracking-widest uppercase hover:bg-lavender-start hover:text-white transition-all shadow-[0_0_20px_rgba(255,255,255,0.1)]">
+            <a href="#enrollment" className="hidden md:flex items-center gap-2 bg-white text-indigo-900 px-6 py-2.5 rounded-full text-sm font-bold tracking-widest uppercase hover:bg-lavender-start hover:text-white transition-all shadow-[0_0_20px_rgba(255,255,255,0.1)]">
               Enroll Now <ArrowRight className="w-4 h-4" />
-            </button>
+            </a>
 
             {/* Mobile Menu Toggle */}
             <button 
@@ -110,9 +110,9 @@ export default function Header() {
                 transition={{ delay: 0.1 + navLinks.length * 0.05, duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
                 className="mt-8"
               >
-                <button className="flex items-center gap-2 bg-white text-indigo-900 px-8 py-4 rounded-full text-sm font-bold tracking-widest uppercase hover:bg-lavender-start hover:text-white transition-all">
+                <a href="#enrollment" onClick={() => setIsMobileMenuOpen(false)} className="inline-flex items-center gap-2 bg-white text-indigo-900 px-8 py-4 rounded-full text-sm font-bold tracking-widest uppercase hover:bg-lavender-start hover:text-white transition-all">
                   Enroll Now <ArrowRight className="w-4 h-4" />
-                </button>
+                </a>
               </motion.div>
             </nav>
           </motion.div>

@@ -42,8 +42,7 @@ const phases = [
 ];
 
 export default function Curriculum() {
-  const [expandedIndex, setExpandedIndex] = useState<number | null>(0);
-
+  const [expandedIndex, setExpandedIndex] = useState<number | null>(null);
   return (
     <section id="curriculum" className="py-32 px-6 bg-background relative z-20 overflow-hidden">
       <div className="container mx-auto max-w-5xl">
