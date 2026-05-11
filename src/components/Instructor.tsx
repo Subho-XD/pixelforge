@@ -73,10 +73,10 @@ export default function Instructor() {
           </div>
 
           {/* Center Image (Transparent PNG, Scaled up, Bottom anchored) */}
-          <div className="w-full md:w-1/3 relative flex justify-center items-end z-30 h-[60vh] md:h-[90vh]">
+          <div className="w-full md:w-1/3 relative flex justify-center items-end z-30 h-[45vh] md:h-[90vh]">
             <motion.div 
-              className="absolute bottom-0 w-[140%] md:w-[160%] max-w-[800px] h-full z-30 pointer-events-none"
-              initial={{ y: 150, opacity: 0 }}
+              className="absolute bottom-0 w-[110%] sm:w-[120%] md:w-[160%] max-w-[800px] h-full z-30 pointer-events-none"
+              initial={{ y: 80, opacity: 0 }}
               whileInView={{ y: 0, opacity: 1 }}
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}

@@ -98,9 +98,6 @@ function CurriculumCard({ phase, isExpanded, onToggle, index }: { phase: any, is
         {/* Header */}
         <div className="p-6 md:p-10 flex items-start sm:items-center justify-between gap-6">
           <div className="flex items-start sm:items-center gap-4 sm:gap-10 flex-col sm:flex-row">
-            <span className={`font-serif text-4xl sm:text-5xl transition-colors duration-500 ${isExpanded ? "text-lavender-start" : "text-white/20"}`}>
-              {phase.id}
-            </span>
             <div>
               <div className="flex items-center gap-3 mb-2">
                 <div className={`p-2 rounded-lg transition-colors duration-500 ${isExpanded ? "bg-lavender-start/20 text-lavender-start" : "bg-white/5 text-white/40"}`}>
@@ -113,7 +110,7 @@ function CurriculumCard({ phase, isExpanded, onToggle, index }: { phase: any, is
           </div>
           
           {/* Toggle Icon */}
-          <div className="hidden sm:flex flex-shrink-0 w-12 h-12 rounded-full border border-white/10 items-center justify-center transition-transform duration-500 group-hover:scale-110">
+          <div className="flex flex-shrink-0 w-12 h-12 rounded-full border border-white/10 items-center justify-center transition-transform duration-500 group-hover:scale-110">
             {isExpanded ? <Minus className="w-5 h-5 text-white" /> : <Plus className="w-5 h-5 text-white" />}
           </div>
         </div>
@@ -127,8 +124,8 @@ function CurriculumCard({ phase, isExpanded, onToggle, index }: { phase: any, is
               exit={{ height: 0, opacity: 0 }}
               transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
             >
-              <div className="px-8 md:px-10 pb-10 pt-0">
-                <div className="w-full h-[1px] bg-white/10 mb-8" />
+              <div className="px-6 md:px-10 pb-6 md:pb-10 pt-0">
+                <div className="w-full h-[1px] bg-white/10 mb-6 md:mb-8" />
                 <div className="flex flex-col md:flex-row gap-8">
                   <div className="flex-1">
                     <h4 className="text-xs uppercase tracking-[0.2em] text-lavender-start mb-4 font-semibold">Deep Dive</h4>

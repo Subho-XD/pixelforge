@@ -1,5 +1,5 @@
 "use client";
-import { useRef } from "react";
+import { useRef, useState, useEffect } from "react";
 import { motion, useMotionValue, useSpring, useTransform, useMotionTemplate } from "framer-motion";
 import { 
   Type, 
@@ -11,7 +11,8 @@ import {
   Wand2, 
   Cpu,
   Heart,
-  MessageCircle
+  MessageCircle,
+  ArrowRight
 } from "lucide-react";
 
 // --- Abstract Background Components ---
@@ -157,13 +158,23 @@ export default function Skills() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="text-white/50 text-sm tracking-[0.2em] uppercase max-w-2xl mx-auto font-sans"
+            className="text-white/50 text-sm tracking-[0.2em] uppercase max-w-2xl mx-auto font-sans mb-6 md:mb-0"
           >
             The skills that define a professional designer
           </motion.p>
+          
+          <motion.div 
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.3 }}
+            className="md:hidden flex items-center justify-center gap-2 text-lavender-start/70 text-xs tracking-widest uppercase font-semibold animate-pulse"
+          >
+            Swipe to explore <ArrowRight className="w-4 h-4" />
+          </motion.div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-4 auto-rows-[280px]">
+        <div className="flex md:grid overflow-x-auto md:overflow-visible snap-x snap-mandatory pb-8 md:pb-0 md:grid-cols-4 md:auto-rows-[280px] gap-4 -mx-6 px-6 md:mx-0 md:px-0 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
           {skills.map((skill, index) => (
             <InteractiveCard key={index} skill={skill} index={index} />
           ))}
@@ -175,6 +186,14 @@ export default function Skills() {
 
 function InteractiveCard({ skill, index }: { skill: any, index: number }) {
   const cardRef = useRef<HTMLDivElement>(null);
+  
+  const [isMobile, setIsMobile] = useState(false);
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 768);
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
   
   // Motion values for tilt
   const x = useMotionValue(0);
@@ -224,11 +243,11 @@ function InteractiveCard({ skill, index }: { skill: any, index: number }) {
       viewport={{ once: true, margin: "-50px" }}
       transition={{ delay: index * 0.05, duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
       style={{
-        rotateX,
-        rotateY,
+        rotateX: isMobile ? 0 : rotateX,
+        rotateY: isMobile ? 0 : rotateY,
         transformStyle: "preserve-3d"
       }}
-      className={`relative rounded-3xl overflow-hidden group ${skill.size} bg-[#0a0515]/80 border border-white/5 backdrop-blur-md cursor-none`}
+      className={`relative flex-none w-[85vw] h-[350px] md:w-auto md:h-auto snap-center rounded-3xl overflow-hidden group ${skill.size} bg-[#0a0515]/80 border border-white/5 backdrop-blur-md cursor-none`}
     >
       {/* 1. Base Gradient */}
       <div className="absolute inset-0 bg-gradient-to-br from-white/[0.02] to-transparent z-0" />

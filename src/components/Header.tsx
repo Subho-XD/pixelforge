@@ -65,7 +65,7 @@ export default function Header() {
 
             {/* Mobile Menu Toggle */}
             <button 
-              className="md:hidden relative z-[60] p-2 -mr-2 text-white hover:text-lavender-start transition-colors"
+              className="md:hidden relative z-[60] p-2 rounded-full border border-white/10 bg-white/5 text-white hover:bg-white/10 transition-colors"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             >
               {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
