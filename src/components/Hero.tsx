@@ -94,7 +94,6 @@ export default function Hero() {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 flex flex-col items-center text-center px-4 w-full max-w-6xl -mt-16">
         
         {/* Floating 3D Icon (The Forge) */}
         {isMounted && (
@@ -205,7 +204,6 @@ export default function Hero() {
         </motion.div>
 
       </div>
-      
       {/* Looping Banner */}
       <div className="w-full mt-auto relative z-20">
         <Marquee />
