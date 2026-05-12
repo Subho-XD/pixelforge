@@ -4,6 +4,7 @@ import "./globals.css";
 import LenisProvider from "@/components/LenisProvider";
 import CustomCursor from "@/components/CustomCursor";
 import BackgroundWatermark from "@/components/BackgroundWatermark";
+import ThemeProvider from "@/components/ThemeProvider";
 
 const spaceGrotesk = Space_Grotesk({
   variable: "--font-space-grotesk",
@@ -29,12 +30,18 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${spaceGrotesk.variable} ${instrumentSerif.variable} h-full antialiased dark`}
+      className={`${spaceGrotesk.variable} ${instrumentSerif.variable} antialiased transition-colors duration-500`}
     >
-      <body className="min-h-full flex flex-col font-sans bg-background text-foreground overflow-x-hidden">
-        <BackgroundWatermark />
-        <CustomCursor />
-        <LenisProvider>{children}</LenisProvider>
+      <body className="flex flex-col font-sans bg-background text-foreground overflow-x-clip overscroll-none">
+        <ThemeProvider>
+          <BackgroundWatermark />
+          <CustomCursor />
+          <LenisProvider>
+            <div className="flex flex-col min-h-screen">
+              {children}
+            </div>
+          </LenisProvider>
+        </ThemeProvider>
       </body>
     </html>
   );

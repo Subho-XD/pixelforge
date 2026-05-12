@@ -32,9 +32,14 @@ export default function Gatekeeper({ children }: { children: React.ReactNode }) 
   const [errorIndex, setErrorIndex] = useState<number | null>(null);
   const [isShaking, setIsShaking] = useState(false);
 
+  const [wasAlreadyUnlocked, setWasAlreadyUnlocked] = useState(false);
+
   useEffect(() => {
     // Check session storage on mount
     const unlocked = sessionStorage.getItem("pixelforge_unlocked") === "true";
+    if (unlocked) {
+      setWasAlreadyUnlocked(true);
+    }
     setIsUnlocked(unlocked);
   }, []);
 
@@ -64,13 +69,23 @@ export default function Gatekeeper({ children }: { children: React.ReactNode }) 
     <>
       {/* 
         We render children if unlocked. If transitioning from the unlock animation, 
-        we fade children in smoothly.
+        we fade children in smoothly. If already unlocked on mount, skip animation entirely
+        to prevent any transform/filter CSS containing block bugs.
       */}
-      {isUnlocked && (
-        <motion.div 
-          initial={{ opacity: 0, filter: "brightness(2) blur(10px)", scale: 0.98 }} 
-          animate={{ opacity: 1, filter: "brightness(1) blur(0px)", scale: 1 }} 
-          transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1] }}
+      {isUnlocked && wasAlreadyUnlocked && (
+        <div id="gatekeeper-content" className="w-full h-full">
+          {children}
+        </div>
+      )}
+      
+      {isUnlocked && !wasAlreadyUnlocked && (
+        // Use opacity-only animation — filter/transform on a wrapper breaks position:fixed children
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
+          id="gatekeeper-content"
+          className="w-full h-full"
         >
           {children}
         </motion.div>

@@ -48,42 +48,46 @@ export default function Footer() {
   }, []);
 
   return (
-    <footer ref={footerRef} className="bg-background pt-32 pb-10 px-6 border-t border-white/5 relative z-20 overflow-hidden">
+    <footer ref={footerRef} className="bg-background pt-32 pb-10 px-6 border-t border-border relative z-20 overflow-hidden">
       <div className="container mx-auto">
-        <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-32 gap-10">
-          <div>
+        <div className="flex flex-col md:flex-row justify-between items-center md:items-start mb-24 md:mb-32 gap-16 md:gap-10 text-center md:text-left">
+          <div className="flex flex-col items-center md:items-start">
             <div className="mb-6">
-              <Image src="/logo.svg" alt="PixelForge Logo" width={180} height={50} className="object-contain" />
+              <Image src="/logo.svg" alt="PixelForge Logo" width={180} height={50} className="dark:invert-0 invert object-contain" />
             </div>
-            <p className="text-white/50 text-lg font-light">Elevating design pedigree.</p>
+            <p className="text-foreground/50 text-lg font-light">Design is thinking made visual.</p>
           </div>
-          <div className="flex gap-16 text-white/60">
-            <div className="flex flex-col gap-4 text-xs tracking-[0.15em] uppercase font-semibold">
+          
+          <div className="flex flex-col sm:flex-row w-full md:w-auto items-center sm:items-start justify-center md:justify-end gap-12 sm:gap-16 text-foreground/60">
+            <div className="flex flex-col gap-4 text-xs tracking-[0.15em] uppercase font-semibold text-center sm:text-left">
               <a href="#" className="hover:text-lavender-start transition-colors">Instagram</a>
               <a href="#" className="hover:text-lavender-start transition-colors">Twitter</a>
               <a href="#" className="hover:text-lavender-start transition-colors">LinkedIn</a>
             </div>
-            <div className="flex flex-col gap-4 text-xs tracking-[0.15em] uppercase font-semibold">
-              <Link href="/terms" className="hover:text-white transition-colors">Terms</Link>
-              <Link href="/privacy" className="hover:text-white transition-colors">Privacy</Link>
-              <Link href="/contact" className="hover:text-white transition-colors">Contact</Link>
+            <div className="flex flex-col gap-4 text-xs tracking-[0.15em] uppercase font-semibold text-center sm:text-left">
+              <Link href="/terms" className="hover:text-foreground transition-colors">Terms</Link>
+              <Link href="/privacy" className="hover:text-foreground transition-colors">Privacy</Link>
+              <Link href="/contact" className="hover:text-foreground transition-colors">Contact</Link>
             </div>
           </div>
         </div>
-        
-        {/* Full-width Marquee Container */}
-        <div ref={textContainerRef} className="w-[100vw] relative left-1/2 -translate-x-1/2 mb-10 flex overflow-hidden">
-          <div ref={textRef} className="flex whitespace-nowrap">
-            {/* Render exactly 4 items so that -50% shifts by exactly 2 items for a seamless loop */}
-            {[...Array(4)].map((_, i) => (
-              <h1 key={i} className="font-serif text-[18vw] leading-[0.8] text-white/5 tracking-tighter select-none pr-[8vw]">
-                PIXELFORGE
-              </h1>
-            ))}
-          </div>
+      </div>
+      
+      {/* Full-width Marquee Container (Moved outside container to avoid w-[100vw]) */}
+      <div ref={textContainerRef} className="w-full relative mb-10 flex overflow-hidden">
+        <div ref={textRef} className="flex whitespace-nowrap">
+          {/* Render exactly 4 items so that -50% shifts by exactly 2 items for a seamless loop */}
+          {[...Array(4)].map((_, i) => (
+            <h1 key={i} className="font-serif text-[18vw] leading-[0.8] text-foreground/[0.03] tracking-tighter select-none pr-[8vw]">
+              PIXELFORGE
+            </h1>
+          ))}
         </div>
+      </div>
+      
+      <div className="container mx-auto">
         
-        <div className="text-center text-white/30 text-xs tracking-widest uppercase mt-10">
+        <div className="text-center text-foreground/30 text-xs tracking-widest uppercase mt-10">
           &copy; {new Date().getFullYear()} PixelForge Education. All rights reserved.
         </div>
       </div>

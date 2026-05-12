@@ -4,29 +4,53 @@
   * {
     cursor: none !important;
   }
+  
+  h1, h2, h3, h4, h5, h6 {
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+}
+
+/* ── Dark Mode (default) ── */
+:root {
+  --background: #090111;
+  --foreground: #FFFFFF;
+  --card-bg: rgba(10, 5, 21, 0.8);
+  --border: rgba(255, 255, 255, 0.05);
+  --accent: #8A2BE2;
+}
+
+/* ── Light Mode — aubergine-tinted, not generic white ── */
+.light {
+  --background: #F4EFF9;
+  --foreground: #1A0B2E;
+  --card-bg: rgba(255, 255, 255, 0.82);
+  --border: rgba(26, 11, 46, 0.09);
+  --accent: #6D28D9;
 }
 
 @theme {
-  --color-background: #090111;
-  --color-foreground: #FFFFFF;
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card-bg: var(--card-bg);
+  --color-border: var(--border);
   
   --color-indigo-900: #140727;
   --color-purple-900: #2c0b47;
-  --color-lavender-start: #8A2BE2;
+  --color-lavender-start: var(--accent);
   --color-lavender-end: #D8B4FE;
   
   --font-sans: var(--font-space-grotesk);
   --font-serif: var(--font-instrument);
 }
 
-:root {
-  --background: #090111;
-  --foreground: #FFFFFF;
-}
-
 body {
   background-color: var(--background);
   color: var(--foreground);
+  transition: background-color 0.5s ease, color 0.5s ease;
 }
 
 /* Reeded Glass Effect */

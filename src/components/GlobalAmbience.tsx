@@ -5,7 +5,7 @@ export default function GlobalAmbience() {
   return (
     <div className="fixed inset-0 z-0 overflow-hidden pointer-events-none">
       <motion.div 
-        className="absolute top-[10%] left-[10%] w-[50vw] h-[50vw] bg-lavender-start/5 rounded-full blur-[150px] mix-blend-screen"
+        className="absolute top-[10%] left-[10%] w-[50vw] h-[50vw] bg-lavender-start/5 rounded-full blur-[150px] dark:mix-blend-screen mix-blend-multiply opacity-50 dark:opacity-100"
         animate={{
           x: [0, 100, -50, 0],
           y: [0, -50, 100, 0],
@@ -14,7 +14,7 @@ export default function GlobalAmbience() {
         transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
       />
       <motion.div 
-        className="absolute bottom-[20%] right-[10%] w-[40vw] h-[40vw] bg-indigo-900/20 rounded-full blur-[150px] mix-blend-screen"
+        className="absolute bottom-[20%] right-[10%] w-[40vw] h-[40vw] bg-lavender-start/10 rounded-full blur-[150px] dark:mix-blend-screen mix-blend-multiply opacity-50 dark:opacity-100"
         animate={{
           x: [0, -100, 50, 0],
           y: [0, 50, -100, 0],

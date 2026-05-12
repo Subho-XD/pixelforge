@@ -52,10 +52,10 @@ export default function Curriculum() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
           >
-            <h2 className="font-serif text-5xl md:text-7xl text-white mb-6 tracking-tight">
+            <h2 className="font-serif text-5xl md:text-7xl text-foreground mb-6 tracking-tight">
               The Curriculum
             </h2>
-            <p className="text-white/60 text-lg md:text-xl max-w-2xl font-light mx-auto">
+            <p className="text-foreground/60 text-lg md:text-xl max-w-2xl font-light mx-auto">
               A carefully engineered roadmap from blank canvas to industry-ready professional.
             </p>
           </motion.div>
@@ -90,8 +90,8 @@ function CurriculumCard({ phase, isExpanded, onToggle, index }: { phase: any, is
         onClick={onToggle}
         className={`cursor-pointer rounded-3xl border transition-all duration-500 overflow-hidden ${
           isExpanded 
-            ? "bg-indigo-900/40 border-lavender-start/30 shadow-[0_0_30px_rgba(138,43,226,0.1)]" 
-            : "bg-indigo-900/10 border-white/5 hover:border-white/10 hover:bg-indigo-900/20"
+            ? "bg-lavender-start/10 border-lavender-start/30 shadow-[0_0_30px_rgba(138,43,226,0.1)]" 
+            : "bg-card-bg border-border hover:border-lavender-start/20 hover:bg-lavender-start/5"
         }`}
       >
         {/* Header */}
@@ -99,18 +99,18 @@ function CurriculumCard({ phase, isExpanded, onToggle, index }: { phase: any, is
           <div className="flex items-start sm:items-center gap-4 sm:gap-10 flex-col sm:flex-row">
             <div>
               <div className="flex items-center gap-3 mb-2">
-                <div className={`p-2 rounded-lg transition-colors duration-500 ${isExpanded ? "bg-lavender-start/20 text-lavender-start" : "bg-white/5 text-white/40"}`}>
+                <div className={`p-2 rounded-lg transition-colors duration-500 ${isExpanded ? "bg-lavender-start/20 text-lavender-start" : "bg-foreground/5 text-foreground/40"}`}>
                   {phase.icon}
                 </div>
-                <h3 className="font-serif text-3xl md:text-4xl text-white">{phase.title}</h3>
+                <h3 className="font-serif text-3xl md:text-4xl text-foreground">{phase.title}</h3>
               </div>
-              <p className="text-white/60 text-lg font-light">{phase.desc}</p>
+              <p className="text-foreground/60 text-lg font-light">{phase.desc}</p>
             </div>
           </div>
           
           {/* Toggle Icon */}
-          <div className="flex flex-shrink-0 w-12 h-12 rounded-full border border-white/10 items-center justify-center transition-transform duration-500 group-hover:scale-110">
-            {isExpanded ? <Minus className="w-5 h-5 text-white" /> : <Plus className="w-5 h-5 text-white" />}
+          <div className="flex flex-shrink-0 w-12 h-12 rounded-full border border-border items-center justify-center transition-transform duration-500 group-hover:scale-110">
+            {isExpanded ? <Minus className="w-5 h-5 text-foreground" /> : <Plus className="w-5 h-5 text-foreground" />}
           </div>
         </div>
 
@@ -124,19 +124,19 @@ function CurriculumCard({ phase, isExpanded, onToggle, index }: { phase: any, is
               transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
             >
               <div className="px-6 md:px-10 pb-6 md:pb-10 pt-0">
-                <div className="w-full h-[1px] bg-white/10 mb-6 md:mb-8" />
+                <div className="w-full h-[1px] bg-border mb-6 md:mb-8" />
                 <div className="flex flex-col md:flex-row gap-8">
                   <div className="flex-1">
                     <h4 className="text-xs uppercase tracking-[0.2em] text-lavender-start mb-4 font-semibold">Deep Dive</h4>
-                    <p className="text-white/80 leading-relaxed font-light text-lg">
+                    <p className="text-foreground/80 leading-relaxed font-light text-lg">
                       {phase.details}
                     </p>
                   </div>
                   <div className="flex-1 mt-6 md:mt-0">
-                    <h4 className="text-xs uppercase tracking-[0.2em] text-white/40 mb-4 font-semibold">Key Deliverables</h4>
+                    <h4 className="text-xs uppercase tracking-[0.2em] text-foreground/40 mb-4 font-semibold">Key Deliverables</h4>
                     <ul className="flex flex-wrap gap-2 md:gap-3">
                       {["Project Files", "Case Study Asset", "Live Feedback"].map((tag, i) => (
-                        <li key={i} className="px-3 py-1.5 md:px-4 md:py-2 rounded-full border border-white/10 bg-white/5 text-xs md:text-sm text-white/70">
+                        <li key={i} className="px-3 py-1.5 md:px-4 md:py-2 rounded-full border border-border bg-foreground/5 text-xs md:text-sm text-foreground/70">
                           {tag}
                         </li>
                       ))}

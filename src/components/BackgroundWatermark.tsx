@@ -57,7 +57,7 @@ export default function BackgroundWatermark() {
         <img 
           src="/icon.svg" 
           alt="" 
-          className="w-full h-full object-contain -rotate-[15deg] translate-x-[20%] translate-y-[10%]"
+          className="w-full h-full object-contain -rotate-[15deg] translate-x-[20%] translate-y-[10%] dark:invert-0 invert"
           aria-hidden="true"
         />
       </motion.div>

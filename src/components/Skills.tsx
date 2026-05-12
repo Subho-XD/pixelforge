@@ -174,7 +174,7 @@ export default function Skills() {
           </motion.div>
         </div>
 
-        <div className="flex md:grid overflow-x-auto md:overflow-visible snap-x snap-mandatory pb-8 md:pb-0 md:grid-cols-4 md:auto-rows-[280px] gap-4 -mx-6 px-6 md:mx-0 md:px-0 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
+        <div className="flex md:grid overflow-x-auto md:overflow-visible snap-x snap-mandatory pt-10 pb-12 md:py-0 md:grid-cols-4 md:auto-rows-[280px] gap-6 -mx-6 px-6 md:mx-0 md:px-0 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
           {skills.map((skill, index) => (
             <InteractiveCard key={index} skill={skill} index={index} />
           ))}
@@ -251,7 +251,7 @@ function InteractiveCard({ skill, index }: { skill: any, index: number }) {
         rotateY: isMobile ? 0 : rotateY,
         transformStyle: "preserve-3d"
       }}
-      className={`relative flex-none w-[85vw] h-[350px] md:w-auto md:h-auto snap-center rounded-3xl overflow-hidden group ${skill.size} bg-[#0a0515]/80 border border-white/5 backdrop-blur-md cursor-none`}
+      className={`relative flex-none w-[85vw] h-[350px] md:w-auto md:h-auto snap-center rounded-3xl overflow-hidden group ${skill.size} bg-card-bg border border-border backdrop-blur-md cursor-none`}
     >
       {/* 1. Base Gradient */}
       <div className="absolute inset-0 bg-gradient-to-br from-white/[0.02] to-transparent z-0" />

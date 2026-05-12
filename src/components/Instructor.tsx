@@ -33,16 +33,16 @@ export default function Instructor() {
     <section 
       ref={containerRef} 
       id="instructor" 
-      className="pt-24 pb-0 md:pt-40 md:pb-0 px-6 bg-[#030008] relative flex items-end justify-center min-h-[100vh]"
+      className="pt-24 pb-0 md:pt-40 md:pb-0 px-6 bg-background relative flex items-end justify-center min-h-[100vh]"
     >
       
       {/* Static Background Glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[60vw] h-[60vw] max-w-[600px] max-h-[600px] bg-purple-600/20 rounded-full blur-[120px] pointer-events-none z-0" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[60vw] h-[60vw] max-w-[600px] max-h-[600px] bg-lavender-start/20 rounded-full blur-[120px] pointer-events-none z-0" />
 
       {/* Massive Background Typography */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
         <div ref={textRef} className="absolute inset-0 flex flex-col items-center justify-center opacity-[0.12]">
-          <h2 className="text-[18vw] font-serif font-black text-white leading-[0.8] tracking-tighter text-center drop-shadow-2xl">
+          <h2 className="text-[18vw] font-serif font-black text-foreground leading-[0.8] tracking-tighter text-center drop-shadow-2xl">
             MASTER<br/>CLASS
           </h2>
         </div>
@@ -63,11 +63,11 @@ export default function Instructor() {
                 <div className="w-16 h-[1px] bg-lavender-start" />
                 <span className="text-lavender-start uppercase tracking-[0.3em] text-sm font-semibold">Meet Your Guide</span>
               </div>
-              <h3 className="font-serif text-5xl md:text-7xl text-white mb-8 leading-tight drop-shadow-lg">
+              <h3 className="font-serif text-5xl md:text-7xl text-foreground mb-8 leading-tight drop-shadow-lg">
                 <span className="italic text-lavender-start font-light">Subho</span><br/>Ghorui
               </h3>
-              <p className="text-white/60 text-xl font-light leading-relaxed max-w-sm mx-auto md:mx-0">
-                A globally recognized design leader with 5+ years of industry experience working with international clients. I bring uncompromising aesthetic standards to my live sessions.
+              <p className="text-foreground/60 text-xl font-light leading-relaxed max-w-sm mx-auto md:mx-0">
+                Five years working with international clients across branding, editorial, and digital. I do not teach theory. I teach how practitioners actually work — and I show the receipts.
               </p>
             </motion.div>
           </div>
@@ -99,11 +99,11 @@ export default function Instructor() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.2, duration: 1, ease: "easeOut" }}
-              className="bg-white/[0.03] backdrop-blur-xl border border-white/10 p-10 rounded-[2rem] shadow-[0_20px_40px_rgba(0,0,0,0.4)] hover:bg-white/[0.05] hover:border-white/20 transition-all duration-500 w-full max-w-[320px]"
+              className="bg-card-bg backdrop-blur-xl border border-border p-10 rounded-[2rem] shadow-[0_20px_40px_rgba(0,0,0,0.4)] hover:bg-lavender-start/5 hover:border-lavender-start/20 transition-all duration-500 w-full max-w-[320px]"
             >
               <div className="flex flex-col">
-                <span className="font-serif text-7xl text-white mb-3">5<span className="text-5xl text-white/40">+</span></span>
-                <span className="text-sm uppercase tracking-[0.2em] text-white/50 font-medium">Years Experience</span>
+                <span className="font-serif text-7xl text-foreground mb-3">5<span className="text-5xl text-foreground/40">+</span></span>
+                <span className="text-sm uppercase tracking-[0.2em] text-foreground/50 font-medium">Years Experience</span>
               </div>
             </motion.div>
             
@@ -112,11 +112,11 @@ export default function Instructor() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.4, duration: 1, ease: "easeOut" }}
-              className="bg-white/[0.03] backdrop-blur-xl border border-white/10 p-10 rounded-[2rem] shadow-[0_20px_40px_rgba(0,0,0,0.4)] hover:bg-white/[0.05] hover:border-white/20 transition-all duration-500 w-full max-w-[320px] md:mr-10"
+              className="bg-card-bg backdrop-blur-xl border border-border p-10 rounded-[2rem] shadow-[0_20px_40px_rgba(0,0,0,0.4)] hover:bg-lavender-start/5 hover:border-lavender-start/20 transition-all duration-500 w-full max-w-[320px] md:mr-10"
             >
               <div className="flex flex-col">
-                <span className="font-serif text-7xl text-white mb-3">15<span className="text-5xl text-white/40">+</span></span>
-                <span className="text-sm uppercase tracking-[0.2em] text-white/50 font-medium">Global Clients</span>
+                <span className="font-serif text-7xl text-foreground mb-3">15<span className="text-5xl text-foreground/40">+</span></span>
+                <span className="text-sm uppercase tracking-[0.2em] text-foreground/50 font-medium">Global Clients</span>
               </div>
             </motion.div>
           </div>
