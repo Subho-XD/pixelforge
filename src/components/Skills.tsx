@@ -12,7 +12,8 @@ import {
   Cpu,
   Heart,
   MessageCircle,
-  ArrowRight
+  ChevronLeft,
+  ChevronRight
 } from "lucide-react";
 
 // --- Abstract Background Components ---
@@ -138,6 +139,14 @@ const skills = [
 ];
 
 export default function Skills() {
+  const scrollRef = useRef<HTMLDivElement>(null);
+
+  const scroll = (dir: "left" | "right") => {
+    if (!scrollRef.current) return;
+    const cardWidth = (scrollRef.current.querySelector("div") as HTMLElement)?.offsetWidth ?? 340;
+    scrollRef.current.scrollBy({ left: dir === "right" ? cardWidth + 24 : -(cardWidth + 24), behavior: "smooth" });
+  };
+
   return (
     <section className="py-32 px-6 bg-[#030008] relative z-20 overflow-hidden">
       {/* Decorative ambient background */}
@@ -158,26 +167,35 @@ export default function Skills() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="text-white/50 text-sm tracking-[0.2em] uppercase max-w-2xl mx-auto font-sans mb-6 md:mb-0"
+            className="text-white/50 text-sm tracking-[0.2em] uppercase max-w-2xl mx-auto font-sans"
           >
             The skills that define a professional designer
           </motion.p>
-          
-          <motion.div 
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.3 }}
-            className="md:hidden flex items-center justify-center gap-2 text-lavender-start/70 text-xs tracking-widest uppercase font-semibold animate-pulse"
-          >
-            Swipe to explore <ArrowRight className="w-4 h-4" />
-          </motion.div>
         </div>
 
-        <div className="flex md:grid overflow-x-auto md:overflow-visible snap-x snap-mandatory pt-10 pb-12 md:py-0 md:grid-cols-4 md:auto-rows-[280px] gap-6 -mx-6 px-6 md:mx-0 md:px-0 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
+        <div
+          ref={scrollRef}
+          className="flex md:grid overflow-x-auto md:overflow-visible snap-x snap-mandatory pt-10 pb-12 md:py-0 md:grid-cols-4 md:auto-rows-[280px] gap-6 -mx-6 px-6 md:mx-0 md:px-0 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]"
+        >
           {skills.map((skill, index) => (
             <InteractiveCard key={index} skill={skill} index={index} />
           ))}
+        </div>
+
+        {/* Mobile arrow buttons */}
+        <div className="flex md:hidden gap-3 justify-center mt-8">
+          <button
+            onClick={() => scroll("left")}
+            className="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center text-white/50 hover:text-white transition-all duration-300"
+          >
+            <ChevronLeft className="w-5 h-5" />
+          </button>
+          <button
+            onClick={() => scroll("right")}
+            className="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center text-white/50 hover:text-white transition-all duration-300"
+          >
+            <ChevronRight className="w-5 h-5" />
+          </button>
         </div>
       </div>
     </section>

@@ -154,12 +154,12 @@ export default function Hero() {
           </motion.div>
         )}
 
-        {/* Top Tagline */}
+      <div className="relative z-10 flex flex-col items-center text-center px-4 w-full max-w-6xl flex-1 justify-center py-8">
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.1 }}
-          className="mb-8 mt-[15vh] md:mt-[10vh]"
+          className="mb-8 mt-0"
         >
           <p className="text-[10px] md:text-xs tracking-[0.4em] uppercase text-foreground/50 font-sans border border-foreground/10 px-6 py-2 rounded-full backdrop-blur-md bg-foreground/5">
             Your first session is on us

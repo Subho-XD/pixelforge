@@ -33,7 +33,8 @@ export default function Instructor() {
     <section 
       ref={containerRef} 
       id="instructor" 
-      className="pt-24 pb-0 md:pt-40 md:pb-0 px-6 bg-background relative flex items-end justify-center min-h-[100vh]"
+      className="pt-24 pb-0 md:pt-40 md:pb-0 px-6 bg-background relative flex items-end justify-center min-h-[100vh] border-b-0"
+      style={{ boxShadow: '0 4px 0 0 #05000a' }}
     >
       
       {/* Static Background Glow */}
