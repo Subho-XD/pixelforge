@@ -69,7 +69,7 @@ export default function Testimonials() {
             Social Proof
           </p>
           <h2 className="font-serif text-4xl md:text-6xl text-white leading-tight tracking-tight">
-            What My Clients<br />
+            What My Clients{" "}
             <span className="italic text-lavender-start font-light">Think of the Work.</span>
           </h2>
         </motion.div>
