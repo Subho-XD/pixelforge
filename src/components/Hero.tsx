@@ -95,63 +95,36 @@ export default function Hero() {
 
       {/* Content */}
         
-        {/* Floating 3D Icon (The Forge) */}
-        {isMounted && (
+      {/* Floating 3D Icon — desktop only */}
+      {isMounted && !isMobile && (
+        <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-0">
           <motion.div
-            className="absolute inset-0 flex items-center justify-center pointer-events-none z-[-1]"
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 2, ease: [0.16, 1, 0.3, 1] }}
+            style={{
+              rotateX,
+              rotateY,
+              x: translateX,
+              y: translateY,
+              transformPerspective: 1200,
+            }}
+            className="relative w-[70vw] max-w-[700px] aspect-square"
           >
-            {isMobile ? (
-              <motion.div
-                style={{ transformPerspective: 1200 }}
-                animate={{
-                  rotateY: [0, 360],
-                  rotateX: [15, -15, 15],
-                }}
-                transition={{
-                  rotateY: { duration: 25, repeat: Infinity, ease: "linear" },
-                  rotateX: { duration: 15, repeat: Infinity, ease: "easeInOut" },
-                }}
-                className="relative w-[70vw] max-w-[500px] aspect-square"
-              >
-                {/* Subtle pulsing light for mobile */}
-                <motion.div 
-                  className="absolute inset-0 w-full h-full text-lavender-start dark:text-[#d8b4fe] mix-blend-multiply dark:mix-blend-screen"
-                  style={{ filter: 'drop-shadow(0 0 15px rgba(138,43,226,0.5))' }}
-                  animate={{ opacity: [0.1, 0.3, 0.1] }}
-                  transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-                >
-                  <SVGIcon />
-                </motion.div>
-              </motion.div>
-            ) : (
-              <motion.div
-                style={{
-                  rotateX,
-                  rotateY,
-                  x: translateX,
-                  y: translateY,
-                  transformPerspective: 1200,
-                }}
-                className="relative w-[70vw] max-w-[500px] md:max-w-[700px] aspect-square"
-              >
-                {/* Interactive Glowing Edges */}
-                <motion.div 
-                  className="absolute inset-0 w-full h-full text-lavender-start dark:text-[#d8b4fe] mix-blend-multiply dark:mix-blend-screen opacity-40"
-                  style={{ 
-                    WebkitMaskImage: maskImage,
-                    maskImage: maskImage,
-                    filter: 'drop-shadow(0 0 10px rgba(138,43,226,0.6))'
-                  }}
-                >
-                  <SVGIcon />
-                </motion.div>
-              </motion.div>
-            )}
+            {/* Interactive Glowing Edges */}
+            <motion.div
+              className="absolute inset-0 w-full h-full text-lavender-start dark:text-[#d8b4fe] mix-blend-multiply dark:mix-blend-screen opacity-40"
+              style={{
+                WebkitMaskImage: maskImage,
+                maskImage: maskImage,
+                filter: 'drop-shadow(0 0 10px rgba(138,43,226,0.6))'
+              }}
+            >
+              <SVGIcon />
+            </motion.div>
           </motion.div>
-        )}
+        </div>
+      )}
 
       <div className="relative z-10 flex flex-col items-center text-center px-4 w-full max-w-6xl flex-1 justify-center py-8">
         <motion.div 
