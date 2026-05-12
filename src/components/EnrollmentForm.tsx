@@ -2,6 +2,7 @@
 import { useState, useRef, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { CheckCircle2, ArrowRight, Loader2, AlertCircle } from "lucide-react";
+import { enrollStudent } from "@/app/actions/enroll";
 
 const experienceLevels = ["Beginner", "Intermediate", "Advanced"];
 
@@ -45,15 +46,10 @@ export default function EnrollmentForm() {
     };
 
     try {
-      const res = await fetch("/api/enroll", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data),
-      });
+      const result = await enrollStudent(data);
 
-      if (!res.ok) {
-        const json = await res.json().catch(() => ({}));
-        throw new Error(json.error || "Something went wrong.");
+      if (!result.success) {
+        throw new Error(result.error || "Something went wrong.");
       }
 
       setIsSuccess(true);
