@@ -58,7 +58,7 @@ export default function Testimonials() {
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[#2e1065] rounded-full blur-[200px] opacity-10 pointer-events-none" />
 
       {/* Header — constrained and padded */}
-      <div className="container mx-auto max-w-6xl px-6 mb-16">
+      <div className="container mx-auto max-w-6xl px-6 mb-16 text-center">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
