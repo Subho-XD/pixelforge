@@ -3,6 +3,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { ArrowLeft, Mail, Phone, MapPin, Loader2, CheckCircle2, AlertCircle } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import { sendContactMessage } from "@/app/actions/contact";
 
 export default function ContactPage() {
   const [name, setName] = useState("");
@@ -17,15 +18,10 @@ export default function ContactPage() {
     setErrorMsg("");
 
     try {
-      const res = await fetch("/api/contact", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name, email, message }),
-      });
+      const result = await sendContactMessage({ name, email, message });
 
-      if (!res.ok) {
-        const json = await res.json().catch(() => ({}));
-        throw new Error(json.error || "Something went wrong.");
+      if (!result.success) {
+        throw new Error(result.error || "Something went wrong.");
       }
 
       setStatus("success");
