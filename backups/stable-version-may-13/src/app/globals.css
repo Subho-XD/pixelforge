@@ -1,0 +1,72 @@
+@import "tailwindcss";
+
+@layer base {
+  * {
+    cursor: none !important;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+}
+
+/* ── Dark Mode (default) ── */
+:root {
+  --background: #090111;
+  --foreground: #FFFFFF;
+  --card-bg: rgba(10, 5, 21, 0.8);
+  --border: rgba(255, 255, 255, 0.05);
+  --accent: #8A2BE2;
+}
+
+/* ── Light Mode — aubergine-tinted, not generic white ── */
+.light {
+  --background: #F4EFF9;
+  --foreground: #1A0B2E;
+  --card-bg: rgba(255, 255, 255, 0.82);
+  --border: rgba(26, 11, 46, 0.09);
+  --accent: #6D28D9;
+}
+
+@theme {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card-bg: var(--card-bg);
+  --color-border: var(--border);
+  
+  --color-indigo-900: #140727;
+  --color-purple-900: #2c0b47;
+  --color-lavender-start: var(--accent);
+  --color-lavender-end: #D8B4FE;
+  
+  --font-sans: var(--font-space-grotesk);
+  --font-serif: var(--font-instrument);
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+/* Reeded Glass Effect */
+.reeded-glass {
+  backdrop-filter: blur(16px) saturate(1.2) contrast(1.1) brightness(1.05);
+  -webkit-backdrop-filter: blur(16px) saturate(1.2) contrast(1.1) brightness(1.05);
+  background: 
+    linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0.02) 0%,
+      rgba(255, 255, 255, 0.05) 40%,
+      rgba(255, 255, 255, 0.08) 50%,
+      rgba(255, 255, 255, 0.05) 60%,
+      rgba(0, 0, 0, 0.05) 100%
+    ),
+    url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' opacity='0.08' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  background-size: 10px 100%, 150px 150px;
+  box-shadow: inset 1px 0 2px rgba(255, 255, 255, 0.1), inset -1px 0 2px rgba(0, 0, 0, 0.1);
+}

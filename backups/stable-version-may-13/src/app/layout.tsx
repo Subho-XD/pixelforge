@@ -1,0 +1,48 @@
+import type { Metadata } from "next";
+import { Space_Grotesk, Instrument_Serif } from "next/font/google";
+import "./globals.css";
+import LenisProvider from "@/components/LenisProvider";
+import CustomCursor from "@/components/CustomCursor";
+import BackgroundWatermark from "@/components/BackgroundWatermark";
+import ThemeProvider from "@/components/ThemeProvider";
+
+const spaceGrotesk = Space_Grotesk({
+  variable: "--font-space-grotesk",
+  subsets: ["latin"],
+});
+
+const instrumentSerif = Instrument_Serif({
+  variable: "--font-instrument",
+  weight: "400",
+  subsets: ["latin"],
+});
+
+export const metadata: Metadata = {
+  title: "PixelForge | Graphic Design Classes — Learn. Create. Build.",
+  description: "A premium graphic design masterclass by PixelForge.",
+};
+
+export default function RootLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
+  return (
+    <html
+      lang="en"
+      className={`${spaceGrotesk.variable} ${instrumentSerif.variable} antialiased transition-colors duration-500`}
+    >
+      <body className="flex flex-col font-sans bg-background text-foreground overflow-x-clip overscroll-none">
+        <ThemeProvider>
+          <BackgroundWatermark />
+          <CustomCursor />
+          <LenisProvider>
+            <div className="flex flex-col min-h-screen">
+              {children}
+            </div>
+          </LenisProvider>
+        </ThemeProvider>
+      </body>
+    </html>
+  );
+}
