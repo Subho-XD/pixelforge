@@ -81,10 +81,10 @@ export default function ContactPage() {
               <div>
                 <h3 className="text-white/50 text-xs uppercase tracking-widest font-semibold mb-1">Email</h3>
                 <a
-                  href="mailto:subho@pixelforge.digital"
+                  href="mailto:subho@thepixelforge.digital"
                   className="text-xl font-light text-white hover:text-lavender-start transition-colors break-all"
                 >
-                  subho@pixelforge.digital
+                  subho@thepixelforge.digital
                 </a>
               </div>
             </div>

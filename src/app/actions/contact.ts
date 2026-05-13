@@ -11,8 +11,8 @@ export async function sendContactMessage(data: {
 }) {
   try {
     const { error } = await resend.emails.send({
-      from: 'PixelForge Contact <contact@pixelforge.digital>',
-      to: ['subho@pixelforge.digital'],
+      from: 'PixelForge Contact <contact@thepixelforge.digital>',
+      to: ['subho@thepixelforge.digital'],
       replyTo: data.email,
       subject: `New message from ${data.name} — PixelForge`,
       html: `
