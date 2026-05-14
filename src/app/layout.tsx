@@ -18,8 +18,46 @@ const instrumentSerif = Instrument_Serif({
 });
 
 export const metadata: Metadata = {
-  title: "PixelForge | Graphic Design Classes — Learn. Create. Build.",
-  description: "A premium graphic design masterclass by PixelForge.",
+  title: "PixelForge | Premium Graphic Design Masterclass & Agency",
+  description: "Unlock your creative potential with PixelForge. We offer premium graphic design classes, branding services, and visual storytelling for founders and creative professionals.",
+  keywords: ["graphic design classes", "branding agency", "visual design", "learn graphic design", "creative masterclass", "PixelForge", "design education", "social media design", "YouTuber branding"],
+  authors: [{ name: "PixelForge Team" }],
+  creator: "PixelForge",
+  publisher: "PixelForge",
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
+  },
+  metadataBase: new URL("https://thepixelforge.digital"),
+  alternates: {
+    canonical: "/",
+  },
+  openGraph: {
+    title: "PixelForge | Premium Graphic Design Masterclass & Agency",
+    description: "Master the art of visual storytelling with our premium design classes and branding services.",
+    url: "https://thepixelforge.digital",
+    siteName: "PixelForge",
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "PixelForge | Premium Graphic Design Masterclass & Agency",
+    description: "Unlock your creative potential with our premium design classes and branding services.",
+    creator: "@pixelforge",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
 };
 
 export default function RootLayout({
