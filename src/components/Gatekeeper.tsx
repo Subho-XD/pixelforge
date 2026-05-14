@@ -26,7 +26,7 @@ const GeminiSparkle = ({ className }: { className?: string }) => (
   </svg>
 );
 
-const LAUNCH_DATE = "2026-05-15T00:00:00";
+const LAUNCH_DATE = "2026-05-15T00:00:00+05:30";
 
 export default function Gatekeeper({ children }: { children: React.ReactNode }) {
   const [isUnlocked, setIsUnlocked] = useState<boolean | null>(null);
