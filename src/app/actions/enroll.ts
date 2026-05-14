@@ -12,9 +12,17 @@ export async function enrollStudent(data: {
   timestamp: string;
 }) {
   try {
+    const email = process.env.GOOGLE_SERVICE_ACCOUNT_EMAIL;
+    const key = process.env.GOOGLE_PRIVATE_KEY;
+
+    if (!email || !key) {
+      console.error('CRITICAL: Google credentials missing from environment');
+      return { success: false, error: 'Server configuration error.' };
+    }
+
     const serviceAccountAuth = new JWT({
-      email: process.env.GOOGLE_SERVICE_ACCOUNT_EMAIL,
-      key: process.env.GOOGLE_PRIVATE_KEY?.replace(/\\n/g, '\n'),
+      email: email,
+      key: key.replace(/^"|"$/g, '').replace(/\\n/g, '\n'),
       scopes: ['https://www.googleapis.com/auth/spreadsheets'],
     });
 
@@ -47,7 +55,9 @@ export async function enrollStudent(data: {
 
     return { success: true };
   } catch (error) {
-    console.error('Spreadsheet Error:', error);
+    // TEMPORARY DEBUG LOG - Check your terminal/Vercel logs for this!
+    console.error('DETAILED ENROLLMENT ERROR:', error);
+    
     return { success: false, error: 'Failed to reserve seat. Please try again later.' };
   }
 }
