@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { verifyPasscode } from "@/app/actions/verify-passcode";
 
 const ERROR_QUOTES = [
   "Nice try, but the creative gods are not amused.",
@@ -28,6 +29,7 @@ const GeminiSparkle = ({ className }: { className?: string }) => (
 export default function Gatekeeper({ children }: { children: React.ReactNode }) {
   const [isUnlocked, setIsUnlocked] = useState<boolean | null>(null);
   const [isUnlocking, setIsUnlocking] = useState(false);
+  const [isVerifying, setIsVerifying] = useState(false);
   const [passcode, setPasscode] = useState("");
   const [errorIndex, setErrorIndex] = useState<number | null>(null);
   const [isShaking, setIsShaking] = useState(false);
@@ -43,22 +45,34 @@ export default function Gatekeeper({ children }: { children: React.ReactNode }) 
     setIsUnlocked(unlocked);
   }, []);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (isUnlocking) return;
-    
-    if (passcode.trim() === "PIX20") {
-      setIsUnlocking(true);
-      // Wait for the explosive animation to finish before removing gatekeeper
-      setTimeout(() => {
-        sessionStorage.setItem("pixelforge_unlocked", "true");
-        setIsUnlocked(true);
-      }, 2000);
-    } else {
+    if (isUnlocking || isVerifying) return;
+
+    setIsVerifying(true);
+    try {
+      const { ok } = await verifyPasscode(passcode);
+
+      if (ok) {
+        setIsUnlocking(true);
+        // Wait for the explosive animation to finish before removing gatekeeper
+        setTimeout(() => {
+          sessionStorage.setItem("pixelforge_unlocked", "true");
+          setIsUnlocked(true);
+        }, 2000);
+      } else {
+        setIsShaking(true);
+        setErrorIndex(Math.floor(Math.random() * ERROR_QUOTES.length));
+        setTimeout(() => setIsShaking(false), 500);
+        setPasscode("");
+      }
+    } catch {
       setIsShaking(true);
       setErrorIndex(Math.floor(Math.random() * ERROR_QUOTES.length));
-      setTimeout(() => setIsShaking(false), 500); // Stop shaking
+      setTimeout(() => setIsShaking(false), 500);
       setPasscode("");
+    } finally {
+      setIsVerifying(false);
     }
   };
 
@@ -159,7 +173,7 @@ export default function Gatekeeper({ children }: { children: React.ReactNode }) 
                     className="w-full bg-white/5 border border-white/10 rounded-full px-6 py-4 text-center text-white placeholder:text-white/20 focus:outline-none focus:border-lavender-start/50 focus:bg-white/10 focus:shadow-[0_0_30px_rgba(138,43,226,0.2)] transition-all backdrop-blur-sm tracking-widest font-mono"
                     autoComplete="off"
                     spellCheck="false"
-                    disabled={isUnlocking}
+                    disabled={isUnlocking || isVerifying}
                   />
                 </motion.div>
 

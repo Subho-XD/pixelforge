@@ -18,11 +18,17 @@ export async function enrollStudent(data: {
       scopes: ['https://www.googleapis.com/auth/spreadsheets'],
     });
 
-    if (!process.env.GOOGLE_SHEET_ID) {
+    const sheetIdRaw = process.env.GOOGLE_SHEET_ID;
+    if (!sheetIdRaw) {
       throw new Error('GOOGLE_SHEET_ID is not defined');
     }
 
-    const doc = new GoogleSpreadsheet(process.env.GOOGLE_SHEET_ID, serviceAccountAuth);
+    // Handle full URL or just the ID
+    const sheetId = sheetIdRaw.includes('/d/') 
+      ? sheetIdRaw.split('/d/')[1].split('/')[0] 
+      : sheetIdRaw;
+
+    const doc = new GoogleSpreadsheet(sheetId, serviceAccountAuth);
     
     // Load document properties and worksheets
     await doc.loadInfo();
@@ -42,6 +48,6 @@ export async function enrollStudent(data: {
     return { success: true };
   } catch (error) {
     console.error('Spreadsheet Error:', error);
-    return { success: false, error: error instanceof Error ? error.message : 'Unknown error' };
+    return { success: false, error: 'Failed to reserve seat. Please try again later.' };
   }
 }

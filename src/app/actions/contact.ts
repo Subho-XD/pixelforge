@@ -10,6 +10,14 @@ export async function sendContactMessage(data: {
   message: string;
 }) {
   try {
+    const esc = (str: string) => str.replace(/[&<>"']/g, (m) => ({
+      '&': '&amp;',
+      '<': '&lt;',
+      '>': '&gt;',
+      '"': '&quot;',
+      "'": '&#39;'
+    }[m] || m));
+
     const { error } = await resend.emails.send({
       from: 'PixelForge Contact <contact@thepixelforge.digital>',
       to: ['subho@thepixelforge.digital'],
@@ -25,22 +33,22 @@ export async function sendContactMessage(data: {
           <table style="width: 100%; border-collapse: collapse; margin-bottom: 32px;">
             <tr>
               <td style="color: rgba(240,234,255,0.4); font-size: 11px; text-transform: uppercase; letter-spacing: 0.15em; padding: 0 0 4px 0; width: 80px;">From</td>
-              <td style="color: #f0eaff; font-size: 16px; font-weight: 600;">${data.name}</td>
+              <td style="color: #f0eaff; font-size: 16px; font-weight: 600;">${esc(data.name)}</td>
             </tr>
             <tr><td colspan="2" style="height: 16px;"></td></tr>
             <tr>
               <td style="color: rgba(240,234,255,0.4); font-size: 11px; text-transform: uppercase; letter-spacing: 0.15em; padding: 0 0 4px 0;">Email</td>
-              <td><a href="mailto:${data.email}" style="color: #a855f7; font-size: 15px;">${data.email}</a></td>
+              <td><a href="mailto:${esc(data.email)}" style="color: #a855f7; font-size: 15px;">${esc(data.email)}</a></td>
             </tr>
           </table>
 
           <div style="background: rgba(168,85,247,0.05); border: 1px solid rgba(168,85,247,0.15); border-radius: 12px; padding: 24px;">
             <p style="color: rgba(240,234,255,0.4); font-size: 11px; text-transform: uppercase; letter-spacing: 0.15em; margin: 0 0 12px 0;">Message</p>
-            <p style="color: #f0eaff; font-size: 16px; line-height: 1.7; margin: 0; white-space: pre-wrap;">${data.message}</p>
+            <p style="color: #f0eaff; font-size: 16px; line-height: 1.7; margin: 0; white-space: pre-wrap;">${esc(data.message)}</p>
           </div>
 
           <p style="color: rgba(240,234,255,0.2); font-size: 11px; text-align: center; margin-top: 40px; letter-spacing: 0.1em;">
-            Hit reply to respond directly to ${data.name}.
+            Hit reply to respond directly to ${esc(data.name)}.
           </p>
         </div>
       `,
@@ -48,12 +56,12 @@ export async function sendContactMessage(data: {
 
     if (error) {
       console.error('Resend error:', error);
-      return { success: false, error: error.message };
+      return { success: false, error: 'Failed to send message. Please try again later.' };
     }
 
     return { success: true };
   } catch (err) {
     console.error('Contact action error:', err);
-    return { success: false, error: err instanceof Error ? err.message : 'Unknown error' };
+    return { success: false, error: 'Internal server error.' };
   }
 }
