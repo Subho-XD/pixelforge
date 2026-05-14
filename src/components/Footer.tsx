@@ -110,7 +110,7 @@ export default function Footer() {
       <div className="container mx-auto">
         
         <div className="text-center text-foreground/30 text-xs tracking-widest uppercase mt-10">
-          &copy; {new Date().getFullYear()} PixelForge Education. All rights reserved.
+          &copy; {new Date().getFullYear()} PixelForge. All rights reserved.
         </div>
       </div>
     </footer>
