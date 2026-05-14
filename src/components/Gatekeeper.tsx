@@ -26,6 +26,8 @@ const GeminiSparkle = ({ className }: { className?: string }) => (
   </svg>
 );
 
+const LAUNCH_DATE = "2026-05-15T00:00:00";
+
 export default function Gatekeeper({ children }: { children: React.ReactNode }) {
   const [isUnlocked, setIsUnlocked] = useState<boolean | null>(null);
   const [isUnlocking, setIsUnlocking] = useState(false);
@@ -37,6 +39,16 @@ export default function Gatekeeper({ children }: { children: React.ReactNode }) 
   const [wasAlreadyUnlocked, setWasAlreadyUnlocked] = useState(false);
 
   useEffect(() => {
+    // Auto-unlock check (Local Time)
+    const launchTime = new Date(LAUNCH_DATE).getTime();
+    const currentTime = new Date().getTime();
+    
+    if (currentTime >= launchTime) {
+      setIsUnlocked(true);
+      setWasAlreadyUnlocked(true);
+      return;
+    }
+
     // Check session storage on mount
     const unlocked = sessionStorage.getItem("pixelforge_unlocked") === "true";
     if (unlocked) {
