@@ -60,9 +60,31 @@ export default function Footer() {
           
           <div className="flex flex-col sm:flex-row w-full md:w-auto items-center sm:items-start justify-center md:justify-end gap-12 sm:gap-16 text-foreground/60">
             <div className="flex flex-col gap-4 text-xs tracking-[0.15em] uppercase font-semibold text-center sm:text-left">
-              <a href="#" className="hover:text-lavender-start transition-colors">Instagram</a>
-              <a href="#" className="hover:text-lavender-start transition-colors">Twitter</a>
-              <a href="#" className="hover:text-lavender-start transition-colors">LinkedIn</a>
+              <a
+                href="https://www.instagram.com/thepixelforge.digital"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-lavender-start transition-colors"
+              >
+                Instagram
+              </a>
+              <a
+                href="https://www.facebook.com/share/1JGYcJunhU/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-lavender-start transition-colors"
+              >
+                Facebook
+              </a>
+              <a
+                href="https://chat.whatsapp.com/GPsXtBvXEfGEjVg6OJ95UE"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-[#25D366] transition-colors flex items-center gap-1.5"
+              >
+                Community
+                <span className="text-[8px] border border-current rounded-full px-1.5 py-0.5 tracking-wider normal-case font-normal opacity-70">WhatsApp</span>
+              </a>
             </div>
             <div className="flex flex-col gap-4 text-xs tracking-[0.15em] uppercase font-semibold text-center sm:text-left">
               <Link href="/terms" className="hover:text-foreground transition-colors">Terms</Link>

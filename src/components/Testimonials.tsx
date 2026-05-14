@@ -3,30 +3,23 @@ import { motion } from "framer-motion";
 
 const clients = [
   {
-    initials: "RK",
-    name: "Rahul Kapoor",
-    role: "Creative Director, Ogilvy India",
+    initials: "AA",
+    name: "Akash Agarwal",
+    role: "Cloudexter",
     quote:
-      "Subho's visual instincts are genuinely rare. He doesn't just execute briefs — he elevates them. Every deliverable came back with a level of craft that made our team look twice at our own standards.",
+      "Subho has worked with us on multiple projects, and the quality delivered was consistently excellent — from website visuals and branding to social creatives. What stood out most was his ability to understand our requirements quickly and turn ideas into designs that aligned perfectly with our vision. Professional, smooth, and results that always exceeded expectations.",
   },
   {
-    initials: "PM",
-    name: "Priya Mehta",
-    role: "Founder, Studio Kora",
+    initials: "SP",
+    name: "Salman Patel",
+    role: "FastCow",
     quote:
-      "Working with Subho reshaped how I think about brand identity. He asked questions nobody else thought to ask, and the result was a visual language so precise it felt inevitable. Highly recommend.",
-  },
-  {
-    initials: "AV",
-    name: "Arjun Verma",
-    role: "Marketing Head, Shiprocket",
-    quote:
-      "The social assets and deck Subho designed became our most-performing campaign material that quarter. He's thoughtful, fast, and the work genuinely converts. Would work with him again without question.",
+      "Subho did a fantastic job on our website and branding projects. Right from the start, he understood the direction we wanted and translated it into visuals that truly represented our brand. The final outcome was far beyond what we initially imagined — both in quality and overall presentation. His creative approach and attention to detail made a significant impact.",
   },
 ];
 
-// Duplicate enough times for a seamless loop
-const looped = [...clients, ...clients, ...clients, ...clients];
+// Duplicate enough times for a seamless loop with only 2 cards
+const looped = [...clients, ...clients, ...clients, ...clients, ...clients, ...clients];
 
 function TestimonialCard({
   client,
