@@ -16,10 +16,17 @@ const clients = [
     quote:
       "Subho did a fantastic job on our website and branding projects. Right from the start, he understood the direction we wanted and translated it into visuals that truly represented our brand. The final outcome was far beyond what we initially imagined — both in quality and overall presentation. His creative approach and attention to detail made a significant impact.",
   },
+  {
+    initials: "S",
+    name: "Sona",
+    role: "YouTuber",
+    quote:
+      "Ever since I started working with Subho, I noticed a clear improvement in the performance of my videos and streams. The thumbnails and edits consistently matched the style and energy I aimed for, making the content feel much more engaging. The noticeable increase in click-through rates directly impacted our growth. A great experience.",
+  },
 ];
 
-// Duplicate enough times for a seamless loop with only 2 cards
-const looped = [...clients, ...clients, ...clients, ...clients, ...clients, ...clients];
+// Duplicate enough times for a seamless loop
+const looped = [...clients, ...clients, ...clients, ...clients];
 
 function TestimonialCard({
   client,

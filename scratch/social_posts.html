@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PixelForge Social Posts</title>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        :root {
+            --background: #090111;
+            --accent: #8A2BE2;
+            --lavender: #D8B4FE;
+        }
+        body {
+            background: #111;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 50px;
+            padding-bottom: 100px;
+        }
+        .post {
+            width: 1080px;
+            height: 1350px;
+            position: relative;
+            overflow: hidden;
+            background: var(--background);
+            color: white;
+            flex-shrink: 0;
+        }
+        .font-serif { font-family: 'Instrument Serif', serif; }
+        .font-sans { font-family: 'Space Grotesk', sans-serif; }
+        
+        .grain {
+            position: absolute;
+            inset: 0;
+            opacity: 0.2;
+            pointer-events: none;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+        }
+
+        .reeded-glass {
+            backdrop-filter: blur(12px) saturate(1.2);
+            background: linear-gradient(
+                90deg,
+                rgba(255, 255, 255, 0.01) 0%,
+                rgba(255, 255, 255, 0.03) 50%,
+                rgba(255, 255, 255, 0.01) 100%
+            );
+            background-size: 8px 100%;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .chromatic {
+            text-shadow: 
+                2px 0 rgba(255, 0, 0, 0.3),
+                -2px 0 rgba(0, 255, 255, 0.3);
+        }
+
+        .gradient-text {
+            background: linear-gradient(to right, var(--accent), var(--lavender));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- POST 1: THE CORE -->
+    <div id="post1" class="post flex flex-col justify-between p-20">
+        <div class="absolute inset-0 z-0">
+            <img src="pixelforge_core_bg_1778740982984.png" class="w-full h-full object-cover opacity-80">
+        </div>
+        <div class="grain z-10"></div>
+        
+        <div class="z-20">
+            <div class="w-24 h-1 bg-accent mb-8"></div>
+            <h1 class="text-9xl font-serif leading-none italic chromatic">Design <br>Beyond <br>Pixels.</h1>
+        </div>
+
+        <div class="z-20 flex justify-between items-end">
+            <p class="text-3xl font-sans font-light tracking-widest uppercase opacity-60">
+                Forging the future <br>of digital craft.
+            </p>
+            <div class="text-right">
+                <span class="text-xl font-sans opacity-40 uppercase tracking-[0.5em]">2026 // PF-01</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- POST 2: THE GRID -->
+    <div id="post2" class="post p-12 bg-[#05010a]">
+        <div class="grain z-10"></div>
+        <div class="grid grid-cols-12 grid-rows-12 w-full h-full gap-4 relative z-20">
+            <!-- Large Reeded Panel -->
+            <div class="col-span-8 row-span-8 reeded-glass rounded-3xl p-12 flex flex-col justify-end">
+                <h1 class="text-8xl font-serif italic">Precision <br>& Chaos.</h1>
+            </div>
+            <!-- Accent Box -->
+            <div class="col-span-4 row-span-3 bg-accent rounded-3xl p-8 flex items-start justify-end">
+                <div class="text-white text-6xl font-sans font-bold">PF</div>
+            </div>
+            <!-- Small Panels -->
+            <div class="col-span-4 row-span-5 border border-white/10 rounded-3xl p-8 flex flex-col justify-between">
+                <p class="text-xl font-sans tracking-tight opacity-50">THE PIXELFORGE <br>STANDARD</p>
+                <div class="w-12 h-12 rounded-full border border-white/20"></div>
+            </div>
+            <!-- Bottom Long Panel -->
+            <div class="col-span-12 row-span-4 bg-white/5 rounded-3xl p-12 flex items-center justify-between">
+                <p class="text-4xl font-sans font-medium tracking-tighter">Digital craftsmanship redefined <br>for the next generation.</p>
+                <div class="text-8xl font-serif opacity-20">02</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- POST 3: THE VISION -->
+    <div id="post3" class="post flex items-center justify-center p-20 text-center">
+        <div class="absolute inset-0 z-0">
+            <img src="pixelforge_vision_bg_1778740995414.png" class="w-full h-full object-cover scale-110 blur-sm opacity-90">
+        </div>
+        <div class="grain z-10"></div>
+        
+        <div class="z-20 max-w-2xl">
+            <h1 class="text-9xl font-serif italic mb-12 leading-tight">Where Art <br><span class="gradient-text">Meets Code.</span></h1>
+            <p class="text-2xl font-sans tracking-[0.3em] uppercase opacity-80 mb-20">Elevate your visual language.</p>
+            <div class="flex justify-center gap-4">
+                <div class="w-2 h-2 rounded-full bg-white"></div>
+                <div class="w-2 h-2 rounded-full bg-white opacity-50"></div>
+                <div class="w-2 h-2 rounded-full bg-white opacity-20"></div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
